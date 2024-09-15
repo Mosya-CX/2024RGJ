@@ -5,6 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "创建新的投掷物", fileName = "newMissle")]
 public class BaseMissile : ScriptableObject
 {
+    public int id;
     public float attackSpace;// 攻击间隔
     public float damage;// 攻击伤害
     public bool isDuration;

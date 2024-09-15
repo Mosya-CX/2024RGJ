@@ -5,7 +5,9 @@ public class Enemy : MonoBehaviour
 {
     public BaseEnemy enemyData;
 
-    public Transform target;// 目标位置
+    public BuffHandler buffHandler;
+
+    public PlayerMovement player;// 目标位置
     public float nextNodeDistance = 3f;// 设置判断是否到达下个节点的临界值
 
     Path path;// 存储要遵循的路径
@@ -20,12 +22,15 @@ public class Enemy : MonoBehaviour
     public float currentSpeed;
     public float currentHealth;
     public int currentDamege;
+    public bool isAttacking;
+
 
     private void Awake()
     {
         seeker = gameObject.GetComponent<Seeker>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         InvokeRepeating(nameof(OnPathCounting), 0, 0.5f);
+        buffHandler = gameObject.GetComponent<BuffHandler>();
 
         currentSpeed = enemyData.speed;
         currentHealth = enemyData.maxHealth;
@@ -34,13 +39,15 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        dist = Vector2.Distance(transform.position, target.position);
+        dist = Vector2.Distance(transform.position, player.transform.position);
     }
 
     private void Update()
-    {
+    { 
+
         if (path == null)
         {
+            Debug.LogWarning("路径为空");
             return;
         }
 
@@ -59,21 +66,25 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            // 执行攻击
-            enemyData.attackAction.Attack(this);
+            if (!isAttacking)
+            {
+                isAttacking = true;
+                // 执行攻击
+                enemyData.attackAction.Attack(this);
+            }
         }
     }
 
     private void LateUpdate()
     {
-        dist = Vector2.Distance(transform.position, target.position);
+        dist = Vector2.Distance(transform.position, player.transform.position);
     }
 
     void OnPathCounting()
     {
         if (seeker.IsDone())
         {
-            seeker.StartPath(rb.position, target.position, OnCountCompelete);
+            seeker.StartPath(rb.position, player.transform.position, OnCountCompelete);
         }
     }
 

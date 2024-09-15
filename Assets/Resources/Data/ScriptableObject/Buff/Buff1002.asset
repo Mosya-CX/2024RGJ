@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03b0c4396514e214bb970b593698ff46, type: 3}
+  m_Name: Buff1002
+  m_EditorClassIdentifier: 
+  Id: 1002
+  Name: "\u51B0\u51BB"
+  Description: 
+  Icon: {fileID: 0}
+  Priority: 0
+  isStackable: 0
+  MaxStack: 1
+  Tags: []
+  isForever: 0
+  Duration: 2
+  TickTime: 0
+  UpdateTimeMode: 1
+  RemoveUpdateMode: 0
+  OnCreate: {fileID: 11400000, guid: 3c914d887715121419de0183c4865fb7, type: 2}
+  OnRemove: {fileID: 11400000, guid: 06e8b0ab96dd1054dabffdcf55ae2ebe, type: 2}
+  OnTick: {fileID: 0}
+  OnHit: {fileID: 0}
+  OnHurt: {fileID: 0}
+  OnKill: {fileID: 0}
+  OnDeath: {fileID: 0}

@@ -55,8 +55,16 @@ public class MissileHandler : MonoBehaviour
                             //    m.missileData.effect.PrefectApply(m, dir);
                             //    break;
                     }
-
-                    m.durationTimer = m.missileData.durationTime;
+                    if (m.missileData.isDuration)
+                    {
+                        m.durationTimer = m.durationTime;
+                        activeList.Add(m);
+                    }
+                    else
+                    {
+                        m.cdTimer = m.attackSpace;
+                        disableList.Add(m);
+                    }
                 }
                 availableList.Clear();
             }
@@ -81,7 +89,7 @@ public class MissileHandler : MonoBehaviour
             foreach(MissileInfo m in disableCache)
             {
                 activeList.Remove(m);
-                m.cdTimer = m.missileData.attackSpace;
+                m.cdTimer = m.attackSpace;
                 disableList.Add(m);
                 m.durationTimer = 0;
             }

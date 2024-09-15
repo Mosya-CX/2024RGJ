@@ -6,6 +6,7 @@ public class EnemyAttack03 : BaseAttack
 {
     public override void Attack(Enemy enemyInfo)
     {
-        throw new System.NotImplementedException();
+        // ÔÝÎÞ
+
     }
 }

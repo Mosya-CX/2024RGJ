@@ -14,6 +14,8 @@ public class GameManager : SingletonWithMono<GameManager>
     public GameStates currentState;
     public GameStates previousState;
 
+    public PlayerMovement playerData;
+
     protected override void Awake()
     {
         base.Awake();
