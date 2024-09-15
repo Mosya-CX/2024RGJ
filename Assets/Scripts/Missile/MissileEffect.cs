@@ -5,5 +5,5 @@ using UnityEngine;
 public abstract class MissileEffect : ScriptableObject
 {
     // 生效时调用
-    public abstract void Apply();
+    public abstract void Apply(MissileInfo info);
 }
