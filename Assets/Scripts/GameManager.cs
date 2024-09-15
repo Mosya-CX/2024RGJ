@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class GameManager : SingletonWithMono<GameManager>
@@ -23,14 +24,16 @@ public class GameManager : SingletonWithMono<GameManager>
         UIManager.Instance.Init();
         AudioManager.Instance.Init();
         timer = 0;
+
     }
     void Update()
     {
+
         switch (currentState)
         {
             case GameStates.GamePlay:
-                timer += Time.deltaTime;
                 CheckForPauseAndResume();
+                timer += Time.deltaTime;
                 break;
 
             case GameStates.Paused:
@@ -45,6 +48,12 @@ public class GameManager : SingletonWithMono<GameManager>
                 break;
         }
     }
+
+    public static void PlayerDied()
+    {
+        Application.Quit();
+    }
+
 
     public void PauseGame()
     {
