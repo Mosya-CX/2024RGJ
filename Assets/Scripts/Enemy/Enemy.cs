@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public BaseEnemy enemyData;
+
     public Transform Target;// 目标位置
-    public float speed = 200f;// 设置AI移动速度
+    //public float speed = 200f;// 设置AI移动速度
     public float nextNodeDistance = 3f;// 设置判断是否到达下个节点的临界值
 
     Path path;// 存储要遵循的路径
@@ -66,7 +68,7 @@ public class Enemy : MonoBehaviour
     {
         // 计算移动方向(方向=目标节点位置 - 自身位置)
         Vector2 Dir = ((Vector2)path.vectorPath[currentNode] - rb.position).normalized;
-        Vector2 Force = Dir * speed * Time.deltaTime;// 计算移动的加速度
+        Vector2 Force = Dir * enemyData.speed * Time.deltaTime;// 计算移动的加速度
 
         // 判断AI朝向
         if (Dir.x > 0.01f)
