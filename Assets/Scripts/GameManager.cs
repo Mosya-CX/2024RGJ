@@ -15,21 +15,21 @@ public class GameManager : SingletonWithMono<GameManager>
     public GameStates previousState;
 
     public PlayerMovement playerData;
+    public float timer;
 
     protected override void Awake()
     {
         base.Awake();
         UIManager.Instance.Init();
         AudioManager.Instance.Init();
-
+        timer = 0;
     }
     void Update()
     {
-
-
         switch (currentState)
         {
             case GameStates.GamePlay:
+                timer += Time.deltaTime;
                 CheckForPauseAndResume();
                 break;
 
