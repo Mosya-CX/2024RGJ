@@ -5,8 +5,7 @@ public class Enemy : MonoBehaviour
 {
     public BaseEnemy enemyData;
 
-    public Transform Target;// 目标位置
-    //public float speed = 200f;// 设置AI移动速度
+    public Transform target;// 目标位置
     public float nextNodeDistance = 3f;// 设置判断是否到达下个节点的临界值
 
     Path path;// 存储要遵循的路径
@@ -14,11 +13,28 @@ public class Enemy : MonoBehaviour
     bool isReached = false;// 记录是否到达正在执行的路径的终点
     Seeker seeker;// 用于计算路径
     Rigidbody2D rb;// 实现移动逻辑用的组件(可用不用是Rigidbody)
+
+    float dist;// 与目标之间的距离
+
+    //当前值
+    public float currentSpeed;
+    public float currentHealth;
+    public int currentDamege;
+
     private void Awake()
     {
         seeker = gameObject.GetComponent<Seeker>();
         rb = gameObject.GetComponent<Rigidbody2D>();
         InvokeRepeating(nameof(OnPathCounting), 0, 0.5f);
+
+        currentSpeed = enemyData.speed;
+        currentHealth = enemyData.maxHealth;
+        currentDamege = enemyData.damage;
+    }
+
+    private void Start()
+    {
+        dist = Vector2.Distance(transform.position, target.position);
     }
 
     private void Update()
@@ -28,28 +44,36 @@ public class Enemy : MonoBehaviour
             return;
         }
 
-        if (currentNode >= path.vectorPath.Count)
+        // 检测是否到达
+        if (dist <= enemyData.attackDist)
         {
             isReached = true;
-            return;
         }
         else
         {
             isReached = false;
         }
-
         if (!isReached)
         {
             Move();
         }
+        else
+        {
+            // 执行攻击
+            enemyData.attackAction.Attack(this);
+        }
+    }
 
+    private void LateUpdate()
+    {
+        dist = Vector2.Distance(transform.position, target.position);
     }
 
     void OnPathCounting()
     {
         if (seeker.IsDone())
         {
-            seeker.StartPath(rb.position, Target.position, OnCountCompelete);
+            seeker.StartPath(rb.position, target.position, OnCountCompelete);
         }
     }
 
@@ -88,7 +112,21 @@ public class Enemy : MonoBehaviour
         {
             currentNode++;
         }
+    }
 
+    public void TakeDamage(float dmg)
+    {
+        currentHealth -= dmg;
+
+        if (currentHealth <= 0)
+        {
+            Kill();
+        }
+    }
+
+    public void Kill()
+    {
+        Destroy(gameObject);
     }
 
 }

@@ -25,26 +25,35 @@ public class MissileHandler : MonoBehaviour
             if (Input.GetKey(KeyCode.Mouse0))
             {
                 // 找出距离最近的敌人
-
+                Enemy closestEnemy = FindClosetEnemy();
+                Vector3 dir = Vector3.zero;
+                if (closestEnemy != null)
+                {
+                    dir = (closestEnemy.transform.position - transform.position).normalized;
+                }
+                else
+                {
+                    dir = (Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position).normalized;
+                }
                 foreach (MissileInfo m in availableList)
                 {
                     switch (m.grade)
                     {
                         case MissileGrade.Base:
-                            m.missileData.effect.BaseApply(m);
+                            m.missileData.effect.BaseApply(m, dir);
                             break;
                         case MissileGrade.Non:
-                            m.missileData.effect.NonApply(m);
+                            m.missileData.effect.NonApply(m, dir);
                             break;
                         case MissileGrade.Good:
-                            m.missileData.effect.GoodApply(m);
+                            m.missileData.effect.GoodApply(m, dir);
                             break;
-                        case MissileGrade.Great:
-                            m.missileData.effect.GreatApply(m);
-                            break;
-                        case MissileGrade.Perfect:
-                            m.missileData.effect.PrefectApply(m);
-                            break;
+                            //case MissileGrade.Great:
+                            //    m.missileData.effect.GreatApply(m, dir);
+                            //    break;
+                            //case MissileGrade.Perfect:
+                            //    m.missileData.effect.PrefectApply(m, dir);
+                            //    break;
                     }
 
                     m.durationTimer = m.missileData.durationTime;
@@ -105,33 +114,31 @@ public class MissileHandler : MonoBehaviour
 
     }
 
-    public void FindClosetEnemy()
+    public Enemy FindClosetEnemy()
     {
         Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, checkRadius);
-        Collider2D nearestCollider = null;
+        Enemy nearestEnemy = null;
         float nearestDistance = float.MaxValue;
 
         // 遍历所有碰撞体
         foreach (Collider2D collider in colliders)
         {
-            // 计算当前碰撞体与游戏对象之间的距离
-            float distance = Vector2.Distance(transform.position, collider.transform.position);
-
-            // 如果当前碰撞体的距离小于之前找到的最小距离
-            if (distance < nearestDistance)
+            if (collider.tag == "Enemy")
             {
-                // 更新最近的碰撞体和距离
-                nearestCollider = collider;
-                nearestDistance = distance;
+                // 计算当前碰撞体与游戏对象之间的距离
+                float distance = Vector2.Distance(transform.position, collider.transform.position);
+
+                // 如果当前碰撞体的距离小于之前找到的最小距离
+                if (distance < nearestDistance)
+                {
+                    // 更新最近的碰撞体和距离
+                    nearestEnemy = collider.GetComponent<Enemy>();
+                    nearestDistance = distance;
+                }
             }
         }
 
-        // 如果找到了最近的碰撞体
-        if (nearestCollider != null)
-        {
-            // 输出最近的碰撞体的名称和距离
-            Debug.Log("最近的碰撞体: " + nearestCollider.gameObject.name + ", 距离: " + nearestDistance);
-        }
+        return nearestEnemy;
     }
 
 }

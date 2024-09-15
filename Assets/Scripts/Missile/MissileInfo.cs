@@ -7,8 +7,8 @@ public enum MissileGrade
     Base,
     Non,
     Good,
-    Great,
-    Perfect
+    //Great,
+    //Perfect
 }
 
 public class MissileInfo

@@ -7,5 +7,7 @@ public class BaseEnemy : ScriptableObject
 {
     public float speed;
     public float maxHealth;
-    public float damage;
+    public int damage;
+    public float attackDist;// ¹¥»÷¾àÀë
+    public BaseAttack attackAction;
 }
