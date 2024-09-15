@@ -4,39 +4,70 @@ using UnityEngine;
 
 public class EnemyManager : SingletonWithMono<EnemyManager>
 {
-    public List<GameObject> enemiesToSpawn; // 要生成的敌人
-    public List<float> timeToSpawn; // 每种敌人的生成时间
-    private List<float> spawnCds; // 每种敌人的生成间隔
-    public List<Transform> spawnPositions; // 地图上的生成位置
+    public GameObject enemy1ToSpawn;
+    public GameObject enemy2ToSpawn;
+    public GameObject enemy3ToSpawn;
+
+    public float spawnTime = 2.0f; // 生成时间
+    private float spawnCd; // 当前生成间隔
+
+    public float enemy1Probability = 0.5f; // 敌人1的概率
+    public float enemy2Probability = 0.3f; // 敌人2的概率
+    public float enemy3Probability = 0.2f; // 敌人3的概率
+
+    public Transform[] spawnPositions; // 指定的生成位置
+    public float spawnRadius = 5.0f; // 生成位置的附近范围
 
     private void Start()
     {
-        // 初始化生成间隔
-        spawnCds = new List<float>(new float[enemiesToSpawn.Count]);
-        for (int i = 0; i < enemiesToSpawn.Count; i++)
-        {
-            spawnCds[i] = timeToSpawn[i];
-        }
+        spawnCd = spawnTime;
     }
 
     void Update()
     {
-        for (int i = 0; i < enemiesToSpawn.Count; i++)
+        spawnCd -= Time.deltaTime;
+        if (spawnCd <= 0)
         {
-            if (spawnCds[i] > 0)
-            {
-                spawnCds[i] -= Time.deltaTime;
-            }
-            else
-            {
-                SpawnEnemy(enemiesToSpawn[i], spawnPositions[i % spawnPositions.Count].position, spawnPositions[i % spawnPositions.Count].rotation);
-                spawnCds[i] = timeToSpawn[i]; // 重置生成间隔
-            }
+            spawnCd = spawnTime;
+            SpawnBatch();
         }
     }
 
-    private void SpawnEnemy(GameObject enemy, Vector3 position, Quaternion rotation)
+    private void SpawnBatch()
     {
-        Instantiate(enemy, position, rotation);
+        for (int i = 0; i < 10; i++) // 一次生成10个敌人
+        {
+            GameObject enemyToSpawn = ChooseEnemyByProbability();
+            SpawnEnemy(enemyToSpawn);
+        }
+    }
+
+    private GameObject ChooseEnemyByProbability()
+    {
+        float randomValue = Random.value;
+        if (randomValue < enemy1Probability)
+        {
+            return enemy1ToSpawn;
+        }
+        else if (randomValue < enemy1Probability + enemy2Probability)
+        {
+            return enemy2ToSpawn;
+        }
+        else
+        {
+            return enemy3ToSpawn;
+        }
+    }
+
+    private void SpawnEnemy(GameObject enemy)
+    {
+        if (spawnPositions.Length > 0)
+        {
+            int randomIndex = Random.Range(0, spawnPositions.Length);
+            Vector3 position = spawnPositions[randomIndex].position;
+            position += Random.insideUnitSphere * spawnRadius;
+            Quaternion rotation = Quaternion.identity;
+            Instantiate(enemy, position, rotation);
+        }
     }
 }

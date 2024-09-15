@@ -4,6 +4,11 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "基因突变相关/基因突变类型/投掷物升阶", fileName = "MissileMutation")]
 public class Mutation1009 : BaseMutation
 {
+    public string Des;
+    public Sprite Icon;
+
+    public override string _Des => Des;
+    public override Sprite _Sprite => Icon;
     public int missileId;
     public override bool TryMutate()
     {

@@ -227,6 +227,7 @@ MonoBehaviour:
   hp: 0
   shield: 0
   knockBackForce: 0
+  missileHandler: {fileID: 0}
 --- !u!70 &338869039
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -674,6 +675,63 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.1465006, y: 2.961565, z: -0.021479301}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1304588515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1304588517}
+  - component: {fileID: 1304588516}
+  m_Layer: 0
+  m_Name: EnemySpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1304588516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304588515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92f47a156ea3e3143982941bae7524fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy1ToSpawn: {fileID: 0}
+  enemy2ToSpawn: {fileID: 0}
+  enemy3ToSpawn: {fileID: 0}
+  spawnTime: 2
+  enemy1Probability: 0.5
+  enemy2Probability: 0.3
+  enemy3Probability: 0.2
+  spawnPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  spawnRadius: 5
+--- !u!4 &1304588517
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1304588515}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.04, y: -0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1275,3 +1333,4 @@ SceneRoots:
   - {fileID: 1108318404}
   - {fileID: 1309068335}
   - {fileID: 291569936}
+  - {fileID: 1304588517}
