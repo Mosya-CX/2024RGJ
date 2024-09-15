@@ -2,7 +2,7 @@
 
 public class UIConst
 {
-    public const string MainPanel = "MainPanel";
+    public const string _GeneMutationPanel = "GeneMutationPanel";
 }
 
 public class AudioConst

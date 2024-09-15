@@ -9,20 +9,24 @@ public class GeneSelectCell : MonoBehaviour, IPointerClickHandler
     public Image cellIcon;
     public Text cellText;
 
+    public BaseMutation mutation;
+
     private void Awake()
     {
         cellIcon = GetComponentInChildren<Image>();
         cellText = GetComponentInChildren<Text>();
     }
 
-    public void SetCell(Sprite icon, string text)
+    public void RefreshUI()
     {
-        cellIcon.sprite = icon;
-        cellText.text = text;
+        //cellIcon.sprite = mutation._Sprite;
+        //cellText.text = mutation._Des;
     }
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        
+        mutation.TryMutate();
+        UIManager.Instance.CloseUI(UIConst._GeneMutationPanel);
     }
+
 }

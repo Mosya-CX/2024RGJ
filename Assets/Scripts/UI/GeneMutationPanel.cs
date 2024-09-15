@@ -14,11 +14,14 @@ public class GeneMutationPanel : BasePanel
     public override void OnOpenUI()
     {
         base.OnOpenUI();
-        RandomSetCells();
     }
 
-    public void RandomSetCells()
+    public void RefreshCells(List<BaseMutation> mutations)
     {
-
+        for (int i = 0; i < selectCells.Count; i++)
+        {
+            selectCells[i].mutation = mutations[i];
+            selectCells[i].RefreshUI();
+        }
     }
 }

@@ -17,7 +17,33 @@ public class GeneMutationManager : SingletonWithoutMono<GeneMutationManager>
 
     public void MutateGenes()
     {
+        List<int> selectIndex = new List<int>();
 
-        
+        while (mutationList.Count < 3)
+        {
+            int index = Random.Range(0, mutationList.Count);
+            bool hasSelected = false;
+            for (int i = 0; i < selectIndex.Count; i++)
+            {
+                if (selectIndex[i] == index)
+                {
+                    hasSelected = true;
+                    break;
+                }
+            }
+            if (!hasSelected)
+            {
+                selectIndex.Add(index);
+            }
+        }
+
+        List<BaseMutation> selectedMutations = new List<BaseMutation>();
+        foreach (int i in selectIndex)
+        {
+            selectedMutations.Add(mutationList[i]);
+        }
+
+        GeneMutationPanel panel = UIManager.Instance.OpenUI<GeneMutationPanel>(UIConst._GeneMutationPanel);
+        panel.RefreshCells(selectedMutations);
     }
 }
