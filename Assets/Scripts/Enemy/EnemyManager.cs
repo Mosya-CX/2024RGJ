@@ -4,9 +4,24 @@ using UnityEngine;
 
 public class EnemyManager : SingletonWithMono<EnemyManager>
 {
-    
-    public void SpawnEnemy()
-    {
+    public GameObject enemyToSpawn;
 
+    public float timeToSpawn;
+    private float spawnCd;
+
+    private void Start()
+    {
+        spawnCd = timeToSpawn;
+    }
+
+    void Update()
+    {
+        spawnCd -= Time.deltaTime;
+        if(spawnCd <= 0) 
+        {
+            spawnCd = timeToSpawn;
+
+            Instantiate(enemyToSpawn,transform.position,transform.rotation);
+        }
     }
 }
