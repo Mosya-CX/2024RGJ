@@ -15,7 +15,7 @@ public class Bullet1001 : BaseBullet
     public override void UpdateBulletPosition()
     {
         base.UpdateBulletPosition();
-
+        Debug.Log("Bullet 1001 Update");
         transform.localPosition += transform.forward * speed * Time.deltaTime;
     }
 }

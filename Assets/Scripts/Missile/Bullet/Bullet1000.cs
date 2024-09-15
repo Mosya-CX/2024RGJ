@@ -2,17 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Bullet1000 : MonoBehaviour
+public class Bullet1000 : BaseBullet
 {
-    // Start is called before the first frame update
-    void Start()
+    public override void EffectOnEnter(Enemy info)
     {
-        
+        base.EffectOnEnter(info);
+        info.TakeDamage(damage);
+
+        Destroy(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    public override void UpdateBulletPosition()
     {
-        
+        base.UpdateBulletPosition();
+
+        Debug.Log(transform.forward);
+        Debug.Log(speed);
+        Debug.Log(Time.deltaTime);
+        transform.localPosition += transform.up * speed * Time.deltaTime;
     }
 }

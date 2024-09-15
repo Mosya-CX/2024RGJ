@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     public int hp; //生命值
     public int shield;// 护盾
     public float knockBackForce; //击退力
+    public float knockDuration; //击退时间
+    private Vector2 knockDir; //击退方向
 
     Rigidbody2D rb;
     Vector2 moveDir;  
@@ -22,7 +24,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        InputManagement();
+        if (knockDuration > 0)
+        {
+            knockDuration -= Time.deltaTime;
+            rb.AddForce(knockDir * knockBackForce * Time.deltaTime);
+        }
+        UpdateDir();
+    }
+
+    public void UpdateDir()
+    {
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+
+        moveDir = new Vector2(moveX, moveY).normalized;
     }
 
     private void FixedUpdate()
@@ -30,13 +45,6 @@ public class PlayerMovement : MonoBehaviour
         Move();
     }
 
-    void InputManagement()
-    {
-        float moveX = Input.GetAxisRaw("Horizontal");
-        float moveY = Input.GetAxisRaw("Vertical");
-
-        moveDir = new Vector2 (moveX, moveY).normalized;
-    }
 
     void Move()
     {
@@ -65,7 +73,9 @@ public class PlayerMovement : MonoBehaviour
         // 播放动画
 
         // 收到击退
-        rb.AddForce(hitDirection * knockBackForce, ForceMode2D.Impulse);
+        Debug.Log("收到击退:" + hitDirection);
+        knockDuration = 1;
+        knockDir = hitDirection.normalized;
 
         if (hp <= 0)
         {

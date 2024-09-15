@@ -24,7 +24,12 @@ public class GameManager : SingletonWithMono<GameManager>
         UIManager.Instance.Init();
         AudioManager.Instance.Init();
         timer = 0;
+        
+    }
 
+    private void Start()
+    {
+        playerData?.missileHandler.AddMissile(Resources.Load<BaseMissile>("Data/ScriptableObject/Missile/Missle1000"));
     }
     void Update()
     {

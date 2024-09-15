@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca98623a67986bc4dbffa35c29915a60, type: 3}
+  m_Name: Missle1000
+  m_EditorClassIdentifier: 
+  id: 1000
+  attackSpace: 1
+  damage: 1
+  isDuration: 0
+  durationTime: 10
+  speed: 5
+  size: 1
+  number: 1
+  prefabe: {fileID: 6352509399456848594, guid: 0df51398aec98684b9dc34aee15f14a8, type: 3}
+  effect: {fileID: 11400000, guid: 9553ae3089561be4482ab9bc9c59a258, type: 2}

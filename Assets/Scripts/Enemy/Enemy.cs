@@ -8,21 +8,22 @@ public class Enemy : MonoBehaviour
     public BuffHandler buffHandler;
 
     public PlayerMovement player;// 目标位置
-    public float nextNodeDistance = 3f;// 设置判断是否到达下个节点的临界值
+    public float nextNodeDistance = 1f;// 设置判断是否到达下个节点的临界值
 
     Path path;// 存储要遵循的路径
     int currentNode = 0;// 记录当前移动到了哪个节点
-    bool isReached = false;// 记录是否到达正在执行的路径的终点
+    public bool isReached = false;// 记录是否到达正在执行的路径的终点
     Seeker seeker;// 用于计算路径
     Rigidbody2D rb;// 实现移动逻辑用的组件(可用不用是Rigidbody)
 
-    float dist;// 与目标之间的距离
+    public float dist;// 与目标之间的距离
 
     //当前值
     public float currentSpeed;
     public float currentHealth;
     public int currentDamege;
     public bool isAttacking;
+    public bool isApproachPlayer;
 
 
     private void Awake()
@@ -31,6 +32,8 @@ public class Enemy : MonoBehaviour
         rb = gameObject.GetComponent<Rigidbody2D>();
         InvokeRepeating(nameof(OnPathCounting), 0, 0.5f);
         buffHandler = gameObject.GetComponent<BuffHandler>();
+
+        player = GameManager.Instance.playerData;
 
         currentSpeed = enemyData.speed;
         currentHealth = enemyData.maxHealth;
@@ -54,17 +57,27 @@ public class Enemy : MonoBehaviour
         // 检测是否到达
         if (dist <= enemyData.attackDist)
         {
+            isApproachPlayer = true;
+        }
+        else
+        {
+            isApproachPlayer = false;
+        }
+        if (currentNode >= path.vectorPath.Count)
+        {
             isReached = true;
+            return;
         }
         else
         {
             isReached = false;
         }
+
         if (!isReached)
         {
             Move();
         }
-        else
+        if (isApproachPlayer)
         {
             if (!isAttacking)
             {
@@ -103,7 +116,6 @@ public class Enemy : MonoBehaviour
     {
         // 计算移动方向(方向=目标节点位置 - 自身位置)
         Vector2 Dir = ((Vector2)path.vectorPath[currentNode] - rb.position).normalized;
-        Vector2 Force = Dir * enemyData.speed * Time.deltaTime;// 计算移动的加速度
 
         // 判断AI朝向
         if (Dir.x > 0.01f)
@@ -115,8 +127,7 @@ public class Enemy : MonoBehaviour
             transform.localScale = new Vector3(1, 1, 1);
         }
 
-        rb.AddForce(Force);
-        // 记得要给AI加上一个阻力 
+        transform.position += (Vector3)Dir * enemyData.speed * Time.deltaTime; 
 
         float distance = Vector2.Distance(rb.position, path.vectorPath[currentNode]);// 计算距离下个节点的距离
         if (distance < nextNodeDistance)

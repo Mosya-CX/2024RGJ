@@ -9,8 +9,10 @@ public class BaseBullet : MonoBehaviour
     public float damage;
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        Debug.Log("OnTriggerEnter2D:" + collision.tag);
         if (collision.tag == "Enemy")
         {
+            Debug.Log("ºÏ≤‚µΩµ–»À");
             EffectOnEnter(collision.GetComponent<Enemy>());
         }
     }

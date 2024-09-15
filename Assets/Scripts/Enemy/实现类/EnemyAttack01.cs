@@ -9,6 +9,7 @@ public class EnemyAttack01 : BaseAttack
     public float checkRadius;
     public override void Attack(Enemy enemyInfo)
     {
+        Debug.Log("µÐÈË¹¥»÷");
         enemyInfo.player.TakeDamage(enemyInfo.transform.position, enemyInfo.currentDamege);
     }
 
