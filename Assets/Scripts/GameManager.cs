@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class GameManager : SingletonWithMono<GameManager>
 {
+    public enum GameStates
+    {
+         GamePlay,
+         Paused,
+         Gameover
+    }
+
+    public GameStates currentState;
+    public GameStates previousState;
+
     protected override void Awake()
     {
         base.Awake();
@@ -11,6 +21,58 @@ public class GameManager : SingletonWithMono<GameManager>
         AudioManager.Instance.Init();
 
     }
+    void Update()
+    {
 
 
+        switch (currentState)
+        {
+            case GameStates.GamePlay:
+                CheckForPauseAndResume();
+                break;
+
+            case GameStates.Paused:
+                CheckForPauseAndResume();
+                break;
+
+            case GameStates.Gameover:
+                break;
+
+            default:
+                Debug.LogWarning("×´Ì¬²»´æÔÚ");
+                break;
+        }
+    }
+
+    public void PauseGame()
+    {
+        if(currentState != GameStates.Paused)
+        {
+            previousState = currentState;
+            currentState = GameStates.Paused;
+            Time.timeScale = 0f;//ÔÝÍ£ÓÎÏ·
+            Debug.Log("ÓÎÏ·ÔÝÍ£");
+        }
+    }
+
+    public void ResumeGame()
+    {
+        if(currentState == GameStates.Paused)
+        {
+            currentState = previousState;
+            Time.timeScale = 1.0f;
+            Debug.Log("ÓÎÏ·¼ÌÐø");
+        }
+    }
+
+    void CheckForPauseAndResume()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            if(currentState == GameStates.Paused)
+                ResumeGame();
+            else
+                PauseGame();
+        }
+    }
 }
