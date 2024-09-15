@@ -12,4 +12,6 @@ public class GameManager : SingletonWithMono<GameManager>
         AudioManager.Instance.Init();
         biods = new Dictionary<string, BiodManager>();
     }
+
+
 }

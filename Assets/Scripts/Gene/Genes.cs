@@ -13,7 +13,6 @@ public class BodyGene : BaseGene
         {
             case BodyType.Horse:
                 biodInfo.speed *= 2;
-                biodInfo.defense *= 0.8f;
                 break;
             case BodyType.Wolf:
                 biodInfo.speed *= 1.5f;
@@ -21,7 +20,6 @@ public class BodyGene : BaseGene
                 break;
             case BodyType.Elephant:
                 biodInfo.speed *= 0.8f;
-                biodInfo.defense *= 2;
                 break;
         }
     }

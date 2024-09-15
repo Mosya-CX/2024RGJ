@@ -7,6 +7,18 @@ public class BiodManager : MonoBehaviour
 {
     public string uid;
     List<BaseBiod> biods;
+    public float spawnVelocity;//最大初始速度
+    public float minVelocity;//最小速度
+    public float maxVelocity;//最大速度
+    public float nearDist;
+    public float collisionDist;
+    public float velocityMatchingAmt;
+    public float flockCenteringAmt;
+    public float collisionAvoidanceAmt;
+    public float targetAtrractionAmt;
+    public float targetAvoidanceAmt;
+    public float targetAvoidanceDist;
+    public float velocityLerpAmt;// 速度插值乘数
 
     public BiodManager(BaseBiod firstBiod)
     {
