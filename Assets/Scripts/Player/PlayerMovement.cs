@@ -12,9 +12,11 @@ public class PlayerMovement : MonoBehaviour
 
     Rigidbody2D rb;
     Vector2 moveDir;  
+    public MissileHandler missileHandler;
 
-    private void Start()
+    private void Awake()
     {
+        missileHandler = GetComponent<MissileHandler>();
         rb = GetComponent<Rigidbody2D>();
     }
 

@@ -9,16 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca98623a67986bc4dbffa35c29915a60, type: 3}
-  m_Name: Missle1001
+  m_Script: {fileID: 11500000, guid: 0b6f0ef9582a86343b20e2284d34c24d, type: 3}
+  m_Name: MissleEffect1001
   m_EditorClassIdentifier: 
-  id: 1001
-  attackSpace: 0
-  damage: 0
-  isDuration: 0
-  durationTime: 0
-  speed: 0
-  size: 0
-  number: 0
-  prefabe: {fileID: 0}
-  effect: {fileID: 0}
+  angleOffset: 5

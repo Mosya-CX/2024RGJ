@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class MissileHandler : MonoBehaviour
 {
+    public List<MissileInfo> totalMissileList = new List<MissileInfo>();
+
     List<MissileInfo> availableList = new List<MissileInfo>();
     List<MissileInfo> activeList = new List<MissileInfo>();
     List<MissileInfo> disableList = new List<MissileInfo>();
@@ -15,7 +17,9 @@ public class MissileHandler : MonoBehaviour
 
     public void AddMissile(BaseMissile missile)
     {
-        availableList.Add(new MissileInfo(missile));
+        MissileInfo newInfo = new MissileInfo(missile);
+        availableList.Add(newInfo);
+        totalMissileList.Add(newInfo);
     }
 
     private void Update()

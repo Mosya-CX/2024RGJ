@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class GeneSelectCell : MonoBehaviour
+public class GeneSelectCell : MonoBehaviour, IPointerClickHandler
 {
     public Image cellIcon;
     public Text cellText;
@@ -18,5 +19,10 @@ public class GeneSelectCell : MonoBehaviour
     {
         cellIcon.sprite = icon;
         cellText.text = text;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        
     }
 }
