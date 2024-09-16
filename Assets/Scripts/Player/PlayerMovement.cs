@@ -15,11 +15,13 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Vector2 moveDir;  
     public MissileHandler missileHandler;
+    private Animator animator;
 
     private void Awake()
     {
         missileHandler = GetComponent<MissileHandler>();
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -44,6 +46,14 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         rb.velocity = new Vector2(moveDir.x * moveSpeed, moveDir.y * moveSpeed);
+        if(rb.velocity==new Vector2(0,0))
+        {
+            animator.SetBool("Is run", false);
+        }
+        else
+        {
+            animator.SetBool("Is run", true);
+        }
     }
 
     public void TakeDamage(int damage)
