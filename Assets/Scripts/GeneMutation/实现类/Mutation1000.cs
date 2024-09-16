@@ -6,14 +6,14 @@ public class Mutation1000 : BaseMutation
 {
     public string Des;
     public Sprite Icon;
-    public uint amt = 2;
+    public uint add;
     public override string _Des => Des;
     public override Sprite _Sprite => Icon;
     public override bool TryMutate()
     {
         foreach (var missileData in GameManager.Instance.playerData.missileHandler.totalMissileList)
         {
-            missileData.number *= amt;
+            missileData.number += add;
         }
         return true;
     }
