@@ -8,6 +8,10 @@ using UnityEngine.UI;
 
 public class BattlePanel : BasePanel
 {
+    public Sprite activeHp;
+    public Sprite disactiveHp;
+    public Sprite activeShield;
+    public Sprite disactiveShield;
     public List<Image> HpPoints;
     public List<Image> ShieldPoints;
     public TextMeshProUGUI TimerText;
@@ -60,12 +64,12 @@ public class BattlePanel : BasePanel
         foreach (Image t in HpPoints)
         {
             // 对每个t进行初始化
-            t.color = new Color(1, 1, 1, 1);
+            t.sprite = activeHp;
         }
         foreach (Image t in ShieldPoints)
         {
             // 对每个t进行初始化
-            t.color = new Color(1, 1, 1, 0);
+            t.sprite = disactiveShield;
         }
     }
 
@@ -77,17 +81,13 @@ public class BattlePanel : BasePanel
             {
                 Image t = ShieldPoints[++shieldIndex];
                 // 对t进行操作
-                Color c = t.color;
-                c.a = 1;
-                t.color = c;
+                t.sprite = activeShield;
             }
             while (shieldIndex > playerData.shield)
             {
                 Image t = ShieldPoints[shieldIndex--];
                 // 对t进行操作
-                Color c = t.color;
-                c.a = 0;
-                t.color = c;
+                t.sprite = disactiveShield;
             }
         }
 
@@ -97,17 +97,13 @@ public class BattlePanel : BasePanel
             {
                 Image t = HpPoints[++hpIndex];
                 // 对t进行操作
-                Color c = t.color;
-                c.a = 1;
-                t.color = c;
+                t.sprite = activeHp;
             }
             while (hpIndex > playerData.hp - 1)
             {
                 Image t = HpPoints[hpIndex--];
                 // 对t进行操作
-                Color c = t.color;
-                c.a = 0;
-                t.color = c;
+                t.sprite = activeHp;
             }
         }
     }

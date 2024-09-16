@@ -11,6 +11,7 @@ public class EnemyAttack01 : BaseAttack
     {
         Debug.Log("µÐÈË¹¥»÷");
         enemyInfo.player.TakeDamage(enemyInfo.transform.position, enemyInfo.currentDamege);
+        enemyInfo.isAttacking = false;
     }
 
 }

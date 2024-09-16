@@ -24,11 +24,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (knockDuration > 0)
-        {
-            knockDuration -= Time.deltaTime;
-            rb.AddForce(knockDir * knockBackForce * Time.deltaTime);
-        }
         UpdateDir();
     }
 
@@ -71,11 +66,6 @@ public class PlayerMovement : MonoBehaviour
             hp-= damage;
         }
         // 播放动画
-
-        // 收到击退
-        Debug.Log("收到击退:" + hitDirection);
-        knockDuration = 1;
-        knockDir = hitDirection.normalized;
 
         if (hp <= 0)
         {
