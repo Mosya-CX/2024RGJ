@@ -12,6 +12,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c76312aeec03e646bbeb7f01038de04, type: 3}
   m_Name: Attack02
   m_EditorClassIdentifier: 
-  precastDelay: 0.5
-  postcastDelay: 0.5
-  missilePrefab: {fileID: 1457587359850541936, guid: 271c1c03fe1dd8543ae9b75cb35fc936, type: 3}
