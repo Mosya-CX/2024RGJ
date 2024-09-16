@@ -16,6 +16,6 @@ public class Bullet1001 : BaseBullet
     {
         base.UpdateBulletPosition();
         Debug.Log("Bullet 1001 Update");
-        transform.localPosition += transform.forward * speed * Time.deltaTime;
+        transform.localPosition += transform.up * speed * Time.deltaTime;
     }
 }

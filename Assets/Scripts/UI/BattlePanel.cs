@@ -8,6 +8,7 @@ using UnityEngine;
 public class BattlePanel : BasePanel
 {
     public List<Transform> HpPoints;
+    public List<Transform> ShieldPoints;
     public TextMeshProUGUI TimerText;
     private PlayerMovement playerData;
 
@@ -22,6 +23,12 @@ public class BattlePanel : BasePanel
         foreach (Transform t in hpBar.transform)
         {
             HpPoints.Add(t);
+        }
+        Transform shieldBar = transform.Find("Top/ShieldBar");
+        ShieldPoints = new List<Transform>();
+        foreach (Transform t in shieldBar.transform)
+        {
+            ShieldPoints.Add(t);
         }
         TimerText = transform.Find("Top/Timer").GetComponentInChildren<TextMeshProUGUI>();
     }
@@ -62,6 +69,11 @@ public class BattlePanel : BasePanel
             // 对每个t进行初始化
 
         }
+        foreach (Transform t in ShieldPoints)
+        {
+            // 对每个t进行初始化
+
+        }
     }
 
     public void UpdateHpPoints(object callback)
@@ -72,13 +84,13 @@ public class BattlePanel : BasePanel
             {
                 while (shieldIndex < playerData.shield)
                 {
-                    Transform t = HpPoints[++shieldIndex];
+                    Transform t = ShieldPoints[++shieldIndex];
                     // 对t进行操作
 
                 }
                 while (shieldIndex > playerData.shield)
                 {
-                    Transform t = HpPoints[shieldIndex--];
+                    Transform t = ShieldPoints[shieldIndex--];
                     // 对t进行操作
 
                 }

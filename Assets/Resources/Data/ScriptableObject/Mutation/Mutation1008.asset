@@ -12,3 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81a8147f8ed8fc04eb4e396f6e5f3d4e, type: 3}
   m_Name: Mutation1008
   m_EditorClassIdentifier: 
+  Des: 
+  Icon: {fileID: 21300000, guid: 117422ff579abc8409eb1dfd381da71b, type: 3}

@@ -24,6 +24,11 @@ public class MissileHandler : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Instance.currentState == GameStates.Paused)
+        {
+            return;
+        }
+
         if (availableList.Count > 0)
         {
             if (Input.GetKey(KeyCode.Mouse0))

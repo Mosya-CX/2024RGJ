@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -7,20 +8,20 @@ using UnityEngine.UI;
 public class GeneSelectCell : MonoBehaviour, IPointerClickHandler
 {
     public Image cellIcon;
-    public Text cellText;
+    public TextMeshProUGUI cellText;
 
     public BaseMutation mutation;
 
     private void Awake()
     {
-        cellIcon = GetComponentInChildren<Image>();
-        cellText = GetComponentInChildren<Text>();
+        cellIcon = transform.Find("Image").GetComponent<Image>();
+        cellText = transform.Find("Description").GetComponent<TextMeshProUGUI>();
     }
 
     public void RefreshUI()
     {
-        //cellIcon.sprite = mutation._Sprite;
-        //cellText.text = mutation._Des;
+        cellIcon.sprite = mutation._Sprite;
+        cellText.text = mutation._Des;
     }
 
     public void OnPointerClick(PointerEventData eventData)

@@ -19,7 +19,7 @@ public class GeneMutationManager : SingletonWithoutMono<GeneMutationManager>
     {
         List<int> selectIndex = new List<int>();
 
-        while (mutationList.Count < 3)
+        while (selectIndex.Count < 3)
         {
             int index = Random.Range(0, mutationList.Count);
             bool hasSelected = false;
