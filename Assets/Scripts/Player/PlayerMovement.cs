@@ -40,11 +40,12 @@ public class PlayerMovement : MonoBehaviour
 
         moveDir = new Vector2(moveX, moveY).normalized;
 
-        // ·­×ª
-        if (moveDir.y != 0)
+        if (moveDir.magnitude > 0)
         {
-            spriteRenderer.flipY = moveDir.y < 0; 
+            float angle = Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.AngleAxis(angle - 90, Vector3.forward);
         }
+
     }
 
     private void FixedUpdate()
