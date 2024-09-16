@@ -31,7 +31,6 @@ public class EnemyAttack02 : BaseAttack
     public async void AttackAsync(Enemy enemyInfo)
     {
         await Task.Delay((int)(precastDelay * 1000));
-        Debug.Log("µÐÈË¹¥»÷02");
         if (enemyInfo == null)
         {
             return;
@@ -41,9 +40,9 @@ public class EnemyAttack02 : BaseAttack
         GameObject missile = GameObject.Instantiate(missilePrefab, enemyInfo.transform.position, Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, dir)));
         EnemyBullet01 bullet = missile.GetComponent<EnemyBullet01>();
         bullet.damage = enemyInfo.currentDamege;
-        Debug.Log("×Óµ¯ÉËº¦" + bullet.damage);
+
         await Task.Delay((int)(postcastDelay* 1000));
-        Debug.Log("µÐÈË¹¥»÷02½áÊø");
+
         enemyInfo.isAttacking = false;
     }
 }
