@@ -780,9 +780,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92f47a156ea3e3143982941bae7524fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemy1ToSpawn: {fileID: 0}
-  enemy2ToSpawn: {fileID: 0}
-  enemy3ToSpawn: {fileID: 0}
+  enemy1ToSpawn: {fileID: 7039967442876155882, guid: ec0697315ef000546919c4d5565df6be, type: 3}
+  enemy2ToSpawn: {fileID: 5290887173656537883, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+  enemy3ToSpawn: {fileID: 9189136899036574335, guid: 0e9a3439b2933c547b889cb0dd042395, type: 3}
   spawnTime: 2
   enemy1Probability: 0.5
   enemy2Probability: 0.3
@@ -808,6 +808,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &3308921109679377853
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5290887173656537883, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+      propertyPath: m_Name
+      value: Enemy02
+      objectReference: {fileID: 0}
+    - target: {fileID: 5290887173656537883, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115091956710740607, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.52
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115091956710740607, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115091956710740607, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115091956710740607, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115091956710740607, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115091956710740607, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115091956710740607, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115091956710740607, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115091956710740607, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6115091956710740607, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 60602d3af1f22a34a937a1b67a80f7ea, type: 3}
 --- !u!1001 &4351873829642208795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -859,6 +920,10 @@ PrefabInstance:
     - target: {fileID: 7039967442876155882, guid: ec0697315ef000546919c4d5565df6be, type: 3}
       propertyPath: m_Name
       value: Enemy01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7039967442876155882, guid: ec0697315ef000546919c4d5565df6be, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -916,6 +981,10 @@ PrefabInstance:
     - target: {fileID: 9189136899036574335, guid: 0e9a3439b2933c547b889cb0dd042395, type: 3}
       propertyPath: m_Name
       value: Enemy03
+      objectReference: {fileID: 0}
+    - target: {fileID: 9189136899036574335, guid: 0e9a3439b2933c547b889cb0dd042395, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -987,6 +1056,7 @@ SceneRoots:
   - {fileID: 624439106}
   - {fileID: 4599094154475732384}
   - {fileID: 4351873829642208795}
+  - {fileID: 3308921109679377853}
   - {fileID: 4549567236119809641}
   - {fileID: 1102611413}
   - {fileID: 1108318404}
