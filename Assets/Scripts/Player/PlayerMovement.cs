@@ -15,18 +15,22 @@ public class PlayerMovement : MonoBehaviour
     Rigidbody2D rb;
     Vector2 moveDir;  
     public MissileHandler missileHandler;
-    private Animator animator;
+    Animator anim;
+    SpriteRenderer spriteRenderer;
+    float speed;//当前速度
 
     private void Awake()
     {
         missileHandler = GetComponent<MissileHandler>();
         rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
         UpdateDir();
+        SetAnimation();
     }
 
     public void UpdateDir()
@@ -35,6 +39,12 @@ public class PlayerMovement : MonoBehaviour
         float moveY = Input.GetAxisRaw("Vertical");
 
         moveDir = new Vector2(moveX, moveY).normalized;
+
+        // 翻转
+        if (moveDir.y != 0)
+        {
+            spriteRenderer.flipY = moveDir.y < 0; 
+        }
     }
 
     private void FixedUpdate()
@@ -46,14 +56,7 @@ public class PlayerMovement : MonoBehaviour
     void Move()
     {
         rb.velocity = new Vector2(moveDir.x * moveSpeed, moveDir.y * moveSpeed);
-        if(rb.velocity==new Vector2(0,0))
-        {
-            animator.SetBool("Is run", false);
-        }
-        else
-        {
-            animator.SetBool("Is run", true);
-        }
+        speed = Mathf.Sqrt(rb.velocity.x * rb.velocity.x + rb.velocity.y * rb.velocity.y);
     }
 
     public void TakeDamage(int damage)
@@ -79,9 +82,14 @@ public class PlayerMovement : MonoBehaviour
         if (hp <= 0)
         {
             // 游戏结束
-            GameManager.Instance.PlayerDied();
+
         }
 
+    }
+
+    public void SetAnimation()
+    {
+        anim.SetFloat("Velocity", speed);
     }
 
 }
