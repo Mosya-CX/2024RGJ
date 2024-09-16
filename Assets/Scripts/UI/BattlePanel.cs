@@ -58,8 +58,8 @@ public class BattlePanel : BasePanel
 
     public void InitHpBar()
     {
-        hpIndex = playerData.hp - 1;
-        shieldIndex = -1;
+        hpIndex = playerData.hp;
+        shieldIndex = 0;
 
         foreach (Image t in HpPoints)
         {
@@ -75,36 +75,36 @@ public class BattlePanel : BasePanel
 
     public void UpdateHpPoints()
     {
-        if (shieldIndex != playerData.shield - 1)
+        if (shieldIndex != playerData.shield)
         {
-            while (shieldIndex < playerData.shield)
+            for (int i = 0; i < ShieldPoints.Count; i++)
             {
-                Image t = ShieldPoints[++shieldIndex];
-                // 对t进行操作
-                t.sprite = activeShield;
+                if (i < playerData.shield)
+                {
+                    ShieldPoints[i].sprite = activeShield;
+                }
+                else
+                {
+                    ShieldPoints[i].sprite = disactiveShield;
+                }
             }
-            while (shieldIndex > playerData.shield)
-            {
-                Image t = ShieldPoints[shieldIndex--];
-                // 对t进行操作
-                t.sprite = disactiveShield;
-            }
+            shieldIndex = playerData.shield;
         }
 
-        if (hpIndex != playerData.hp - 1)
+        if (hpIndex != playerData.hp)
         {
-            while (hpIndex < playerData.hp - 1)
+            for (int i = 0; i < HpPoints.Count; i++)
             {
-                Image t = HpPoints[++hpIndex];
-                // 对t进行操作
-                t.sprite = activeHp;
+                if (i < playerData.hp)
+                {
+                    HpPoints[i].sprite = activeHp;
+                }
+                else
+                {
+                    HpPoints[i].sprite = disactiveHp;
+                }
             }
-            while (hpIndex > playerData.hp - 1)
-            {
-                Image t = HpPoints[hpIndex--];
-                // 对t进行操作
-                t.sprite = activeHp;
-            }
+            hpIndex = playerData.hp;
         }
     }
     
