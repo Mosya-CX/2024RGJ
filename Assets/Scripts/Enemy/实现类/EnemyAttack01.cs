@@ -7,17 +7,11 @@ using static UnityEditor.Progress;
 public class EnemyAttack01 : BaseAttack
 {
     public float checkRadius;
-    public float attackSpace = 0.5f;
     public override void Attack(Enemy enemyInfo)
     {
         Debug.Log("µÐÈË¹¥»÷");
-        ThreadPool.QueueUserWorkItem((o) =>
-        {
-            enemyInfo.player.TakeDamage(enemyInfo.currentDamege);
-            Thread.Sleep((int)(attackSpace * 1000));
-            enemyInfo.isAttacking = false;
-        });
-        
+        enemyInfo.player.TakeDamage(enemyInfo.transform.position, enemyInfo.currentDamege);
+        enemyInfo.isAttacking = false;
     }
 
 }

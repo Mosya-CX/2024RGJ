@@ -58,8 +58,8 @@ public class BattlePanel : BasePanel
 
     public void InitHpBar()
     {
-        hpIndex = playerData.hp;
-        shieldIndex = 0;
+        hpIndex = playerData.hp - 1;
+        shieldIndex = -1;
 
         foreach (Image t in HpPoints)
         {
@@ -75,36 +75,36 @@ public class BattlePanel : BasePanel
 
     public void UpdateHpPoints()
     {
-        if (shieldIndex != playerData.shield)
+        if (shieldIndex != playerData.shield - 1)
         {
-            for (int i = 0; i < ShieldPoints.Count; i++)
+            while (shieldIndex < playerData.shield)
             {
-                if (i < playerData.shield)
-                {
-                    ShieldPoints[i].sprite = activeShield;
-                }
-                else
-                {
-                    ShieldPoints[i].sprite = disactiveShield;
-                }
+                Image t = ShieldPoints[++shieldIndex];
+                // 对t进行操作
+                t.sprite = activeShield;
             }
-            shieldIndex = playerData.shield;
+            while (shieldIndex > playerData.shield)
+            {
+                Image t = ShieldPoints[shieldIndex--];
+                // 对t进行操作
+                t.sprite = disactiveShield;
+            }
         }
 
-        if (hpIndex != playerData.hp)
+        if (hpIndex != playerData.hp - 1)
         {
-            for (int i = 0; i < HpPoints.Count; i++)
+            while (hpIndex < playerData.hp - 1)
             {
-                if (i < playerData.hp)
-                {
-                    HpPoints[i].sprite = activeHp;
-                }
-                else
-                {
-                    HpPoints[i].sprite = disactiveHp;
-                }
+                Image t = HpPoints[++hpIndex];
+                // 对t进行操作
+                t.sprite = activeHp;
             }
-            hpIndex = playerData.hp;
+            while (hpIndex > playerData.hp - 1)
+            {
+                Image t = HpPoints[hpIndex--];
+                // 对t进行操作
+                t.sprite = activeHp;
+            }
         }
     }
     

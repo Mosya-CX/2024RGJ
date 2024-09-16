@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
             isReached = false;
         }
 
-        if (!isReached && !isAttacking)
+        if (!isReached)
         {
             Move();
         }

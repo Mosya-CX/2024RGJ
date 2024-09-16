@@ -46,8 +46,9 @@ public class PlayerMovement : MonoBehaviour
         rb.velocity = new Vector2(moveDir.x * moveSpeed, moveDir.y * moveSpeed);
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(Vector3 enemyPos, int damage)
     {
+        Vector3 hitDirection = transform.position - enemyPos;
         if (shield > 0)
         {
             if (shield >= damage)
