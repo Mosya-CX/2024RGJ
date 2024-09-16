@@ -74,7 +74,7 @@ public class GameManager : SingletonWithMono<GameManager>
         }
     }
 
-    public static void PlayerDied()
+    public void PlayerDied()
     {
         Application.Quit();
     }

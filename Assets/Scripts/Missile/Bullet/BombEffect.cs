@@ -20,12 +20,12 @@ public class BombEffect : MonoBehaviour
             hasBomb = true;
         }
     }
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy") && hasSetDamage && !hasBomb && hasSetDamage)
-        {
-            collision.GetComponent<Enemy>().TakeDamage(damage);
-            hasBomb = true;
-        }
-    }
+    //private void OnTriggerStay2D(Collider2D collision)
+    //{
+    //    if (collision.CompareTag("Enemy") && hasSetDamage && !hasBomb && hasSetDamage)
+    //    {
+    //        collision.GetComponent<Enemy>().TakeDamage(damage);
+    //        hasBomb = true;
+    //    }
+    //}
 }
