@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49550f9917972b34995f5568ed99f2ea, type: 3}
   m_Name: Buff1001OnTick
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 5
