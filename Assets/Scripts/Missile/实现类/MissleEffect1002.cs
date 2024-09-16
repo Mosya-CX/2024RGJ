@@ -26,7 +26,6 @@ public class MissleEffect1002 : MissileEffect
             bullet.speed = info.speed;
             bullet.damage = info.damage;
             bullet.duration = info.durationTime;
-            bullet.bombRadius *= 1;
         }
     }
 
@@ -45,13 +44,12 @@ public class MissleEffect1002 : MissileEffect
                 obj = Instantiate(info.missileData.prefabe, GameManager.Instance.playerData.transform.position + dir * 2, Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, dir) - ((i + 1) / 2) * angleOffset));
             }
             tmp = !tmp;
-            obj.transform.localScale *= info.size;
+            obj.transform.localScale *= info.size * 1.2f;
             // 获得子弹脚本
             Bullet1002 bullet = obj.GetComponent<Bullet1002>();
             bullet.speed = info.speed;
             bullet.damage = info.damage;
             bullet.duration = info.durationTime;
-            bullet.bombRadius *= 1.2f;
         }
         
     }
@@ -71,7 +69,7 @@ public class MissleEffect1002 : MissileEffect
                 obj = Instantiate(info.missileData.prefabe, GameManager.Instance.playerData.transform.position + dir * 2, Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, dir) - ((i + 1) / 2) * angleOffset));
             }
             tmp = !tmp;
-            obj.transform.localScale *= info.size;
+            obj.transform.localScale *= info.size * 1.2f;
             // 获得子弹脚本
             Bullet1002 bullet = obj.GetComponent<Bullet1002>();
             bullet.speed = info.speed;

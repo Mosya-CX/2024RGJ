@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1213527340, guid: e89487fc9847f0d48bdd107d8b0d5d6e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -339,7 +339,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1213527340, guid: e89487fc9847f0d48bdd107d8b0d5d6e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -414,7 +414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 1213527340, guid: e89487fc9847f0d48bdd107d8b0d5d6e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -564,7 +564,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -671327894, guid: e89487fc9847f0d48bdd107d8b0d5d6e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -601,7 +601,7 @@ RectTransform:
   m_GameObject: {fileID: 6236007951067277522}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5307931461756177825}
@@ -609,7 +609,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -110, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 54, y: 63}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2026052271928489575
 CanvasRenderer:
@@ -639,7 +639,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -1936132393, guid: 1a3fe6c1d7cddb24aa63db746405fe56, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -801,6 +801,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952a2b064e2520e4e8bf0287b001ec49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activeHp: {fileID: 154570239, guid: 1a3fe6c1d7cddb24aa63db746405fe56, type: 3}
+  disactiveHp: {fileID: 1213527340, guid: e89487fc9847f0d48bdd107d8b0d5d6e, type: 3}
+  activeShield: {fileID: -671327894, guid: e89487fc9847f0d48bdd107d8b0d5d6e, type: 3}
+  disactiveShield: {fileID: -1539346277, guid: 1a3fe6c1d7cddb24aa63db746405fe56, type: 3}
   HpPoints: []
   ShieldPoints: []
   TimerText: {fileID: 0}
+  hpIndex: 0
+  shieldIndex: 0

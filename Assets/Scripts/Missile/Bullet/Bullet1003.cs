@@ -13,10 +13,10 @@ public class Bullet1003 : BaseBullet
         speed = 0;
         switch (grade)
         {
-            case MissileGrade.Non:
-                info.buffHandler.AddBuff(new BuffInfo("Data/ScriptableObject/Buff/Buff1001", gameObject, info.gameObject));
-                break;
             case MissileGrade.Base:
+                info.buffHandler.AddBuff(new BuffInfo("Data/ScriptableObject/Buff/Buff1000", gameObject, info.gameObject));
+                break;
+            case MissileGrade.Non:
                 info.buffHandler.AddBuff(new BuffInfo("Data/ScriptableObject/Buff/Buff1001", gameObject, info.gameObject));
                 info.buffHandler.AddBuff(new BuffInfo("Data/ScriptableObject/Buff/Buff1000", gameObject, info.gameObject));
                 break;

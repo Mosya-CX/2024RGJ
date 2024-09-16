@@ -4,38 +4,37 @@ using System.Linq;
 using System.Threading;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BattlePanel : BasePanel
 {
-    public List<Transform> HpPoints;
-    public List<Transform> ShieldPoints;
+    public Sprite activeHp;
+    public Sprite disactiveHp;
+    public Sprite activeShield;
+    public Sprite disactiveShield;
+    public List<Image> HpPoints;
+    public List<Image> ShieldPoints;
     public TextMeshProUGUI TimerText;
     private PlayerMovement playerData;
 
-    private int hpIndex;
-    private int shieldIndex;
+    public int hpIndex;
+    public int shieldIndex;
 
     private bool isOpen;
     private void Awake()
     {
         playerData = GameManager.Instance.playerData;
-        Transform hpBar = transform.Find("Top/HpBar");
-        foreach (Transform t in hpBar.transform)
-        {
-            HpPoints.Add(t);
-        }
-        Transform shieldBar = transform.Find("Top/ShieldBar");
-        ShieldPoints = new List<Transform>();
-        foreach (Transform t in shieldBar.transform)
-        {
-            ShieldPoints.Add(t);
-        }
+        HpPoints = transform.Find("Top/HpBar").GetComponentsInChildren<Image>().ToList();
+
+        ShieldPoints = transform.Find("Top/ShieldBar").GetComponentsInChildren<Image>().ToList();
+
         TimerText = transform.Find("Top/Timer").GetComponentInChildren<TextMeshProUGUI>();
     }
 
     private void Update()
     {
         TimerText.text = GameManager.Instance.timer.ToString();
+        UpdateHpPoints();
     }
     public override void OnOpenUI()
     {
@@ -43,8 +42,6 @@ public class BattlePanel : BasePanel
         isOpen = true;
 
         InitHpBar();
-
-        ThreadPool.QueueUserWorkItem(UpdateHpPoints);
     }
 
     public override void OnHideUI()
@@ -61,55 +58,52 @@ public class BattlePanel : BasePanel
 
     public void InitHpBar()
     {
-        hpIndex = playerData.hp;
-        shieldIndex = 0;
+        hpIndex = playerData.hp - 1;
+        shieldIndex = -1;
 
-        foreach (Transform t in HpPoints)
+        foreach (Image t in HpPoints)
         {
             // 对每个t进行初始化
-
+            t.sprite = activeHp;
         }
-        foreach (Transform t in ShieldPoints)
+        foreach (Image t in ShieldPoints)
         {
             // 对每个t进行初始化
-
+            t.sprite = disactiveShield;
         }
     }
 
-    public void UpdateHpPoints(object callback)
+    public void UpdateHpPoints()
     {
-        while (isOpen)
+        if (shieldIndex != playerData.shield - 1)
         {
-            if (shieldIndex != playerData.shield)
+            while (shieldIndex < playerData.shield)
             {
-                while (shieldIndex < playerData.shield)
-                {
-                    Transform t = ShieldPoints[++shieldIndex];
-                    // 对t进行操作
-
-                }
-                while (shieldIndex > playerData.shield)
-                {
-                    Transform t = ShieldPoints[shieldIndex--];
-                    // 对t进行操作
-
-                }
+                Image t = ShieldPoints[++shieldIndex];
+                // 对t进行操作
+                t.sprite = activeShield;
             }
-
-            if (hpIndex != playerData.hp - 1)
+            while (shieldIndex > playerData.shield)
             {
-                while (hpIndex < playerData.hp - 1)
-                {
-                    Transform t = HpPoints[++hpIndex];
-                    // 对t进行操作
+                Image t = ShieldPoints[shieldIndex--];
+                // 对t进行操作
+                t.sprite = disactiveShield;
+            }
+        }
 
-                }
-                while (hpIndex > playerData.hp - 1)
-                {
-                    Transform t = HpPoints[hpIndex--];
-                    // 对t进行操作
-
-                }
+        if (hpIndex != playerData.hp - 1)
+        {
+            while (hpIndex < playerData.hp - 1)
+            {
+                Image t = HpPoints[++hpIndex];
+                // 对t进行操作
+                t.sprite = activeHp;
+            }
+            while (hpIndex > playerData.hp - 1)
+            {
+                Image t = HpPoints[hpIndex--];
+                // 对t进行操作
+                t.sprite = activeHp;
             }
         }
     }
