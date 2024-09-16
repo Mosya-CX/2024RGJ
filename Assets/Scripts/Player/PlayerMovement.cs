@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour
         if (hp <= 0)
         {
             // ÓÎÏ·½áÊø
-
+            GameManager.Instance.PlayerDied();
         }
 
     }

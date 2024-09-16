@@ -32,7 +32,7 @@ public class GameManager : SingletonWithMono<GameManager>
 
     private void Start()
     {
-        playerData?.missileHandler.AddMissile(Resources.Load<BaseMissile>("Data/ScriptableObject/Missile/Missle1000"));
+        playerData?.missileHandler.AddMissile(Resources.Load<BaseMissile>("Data/ScriptableObject/Missile/Missle1002"));
         if (camera != null)
         {
             camera.Follow = playerData.transform;
@@ -74,7 +74,7 @@ public class GameManager : SingletonWithMono<GameManager>
         }
     }
 
-    public static void PlayerDied()
+    public void PlayerDied()
     {
         Application.Quit();
     }

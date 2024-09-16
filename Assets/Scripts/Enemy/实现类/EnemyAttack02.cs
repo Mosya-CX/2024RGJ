@@ -32,8 +32,12 @@ public class EnemyAttack02 : BaseAttack
     {
         await Task.Delay((int)(precastDelay * 1000));
         Debug.Log("敌人攻击02");
+        if (enemyInfo == null)
+        {
+            return;
+        }
         // 生成子弹
-        Vector3 dir = enemyInfo.player.transform.position - enemyInfo.transform.position;
+        Vector3 dir = GameManager.Instance.playerData.transform.position - enemyInfo.transform.position;
         GameObject missile = GameObject.Instantiate(missilePrefab, enemyInfo.transform.position, Quaternion.Euler(0, 0, Vector2.SignedAngle(Vector2.up, dir)));
         EnemyBullet01 bullet = missile.GetComponent<EnemyBullet01>();
         bullet.damage = enemyInfo.currentDamege;
