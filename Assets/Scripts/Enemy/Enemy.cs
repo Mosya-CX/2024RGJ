@@ -47,6 +47,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         dist = Vector2.Distance(transform.position, player.transform.position);
+        EnemyManager.Instance.enemy1Count++;
     }
 
     private void Update()
@@ -152,6 +153,7 @@ public class Enemy : MonoBehaviour
 
     public void Kill()
     {
+        EnemyManager.Instance.enemy1Count--;
         Destroy(gameObject);
     }
 
