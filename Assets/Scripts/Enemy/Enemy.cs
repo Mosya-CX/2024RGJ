@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    Animator anim;
     Vector3 originScale;
 
     public BaseEnemy enemyData;
@@ -30,6 +31,7 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        anim = GetComponent<Animator>();
         seeker = gameObject.GetComponent<Seeker>();
         //rb = gameObject.GetComponent<Rigidbody2D>();
         InvokeRepeating(nameof(OnPathCounting), 0, 0.5f);
@@ -51,7 +53,8 @@ public class Enemy : MonoBehaviour
     }
 
     private void Update()
-    { 
+    {
+        SetAnimation();
 
         if (path == null)
         {
@@ -157,4 +160,8 @@ public class Enemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void SetAnimation()
+    {
+        anim.SetFloat("Velocity", currentSpeed);
+    }
 }

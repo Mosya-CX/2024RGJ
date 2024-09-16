@@ -27,18 +27,22 @@ public class GameManager : SingletonWithMono<GameManager>
         AudioManager.Instance.Init();
         GeneMutationManager.Instance.Init();
         timer = 0;
-        
+        PauseGame();
+
+        playerData.gameObject.SetActive(false);
+        EnemyManager.Instance.gameObject.SetActive(false);
+        UIManager.Instance.OpenUI<MainPanel>(UIConst._MainPanel);
     }
 
     private void Start()
     {
-        playerData?.missileHandler.AddMissile(Resources.Load<BaseMissile>("Data/ScriptableObject/Missile/Missle1000"));
+        
         if (camera != null)
         {
             camera.Follow = playerData.transform;
             camera.LookAt = playerData.transform;
         }
-        UIManager.Instance.OpenUI<BattlePanel>(UIConst._BattlePanel);
+        //UIManager.Instance.OpenUI<BattlePanel>(UIConst._BattlePanel);
     }
     void Update()
     {

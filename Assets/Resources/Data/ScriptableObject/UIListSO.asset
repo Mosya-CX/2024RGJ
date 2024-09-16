@@ -17,3 +17,5 @@ MonoBehaviour:
     prefab: {fileID: 8919408440170273844, guid: a3a1fce0587005e4e9f48a3beec64036, type: 3}
   - name: GeneMutationPanel
     prefab: {fileID: 2819501505559636951, guid: 51dbc180c8ea07d4baa8b0b4176f7ac7, type: 3}
+  - name: MainPanel
+    prefab: {fileID: 417408471405437767, guid: 5f7074ea7c04e494a88c8a82757806f2, type: 3}
