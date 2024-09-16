@@ -22,7 +22,7 @@ MonoBehaviour:
   Tags: []
   isForever: 0
   Duration: 5
-  TickTime: 0.1
+  TickTime: 1
   UpdateTimeMode: 1
   RemoveUpdateMode: 0
   OnCreate: {fileID: 0}

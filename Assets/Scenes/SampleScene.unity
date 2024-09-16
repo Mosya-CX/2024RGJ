@@ -313,7 +313,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  hp: 100
+  hp: 3
   shield: 0
   knockBackForce: 1000
   knockDuration: 0

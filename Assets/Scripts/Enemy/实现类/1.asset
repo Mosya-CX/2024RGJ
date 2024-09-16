@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   maxHealth: 10
-  damage: 10
+  damage: 1
   attackDist: 1.1
   attackAction: {fileID: 11400000, guid: 0133315b93a01aa4fb6803716d97e8bc, type: 2}

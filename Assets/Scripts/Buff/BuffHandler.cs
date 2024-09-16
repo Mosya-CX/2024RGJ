@@ -76,7 +76,7 @@ public class BuffHandler : MonoBehaviour
                             break;
                     }
                     // 最后调用 OnCreate()
-                    buffInfo.buffData.OnCreate.Apply(buffInfo);
+                    buffInfo.buffData.OnCreate?.Apply(buffInfo);
                 }
             }
             else
@@ -85,11 +85,11 @@ public class BuffHandler : MonoBehaviour
                 {
                     case BuffUpdateTimeEnum.Add:
                         buffInfo.durationTimer += buffInfo.buffData.Duration;
-                        buffInfo.buffData.OnCreate.Apply(buffInfo);
+                        buffInfo.buffData.OnCreate?.Apply(buffInfo);
                         break;
                     case BuffUpdateTimeEnum.Replace:
                         buffInfo.durationTimer = buffInfo.buffData.Duration;
-                        buffInfo.buffData.OnCreate.Apply(buffInfo);
+                        buffInfo.buffData.OnCreate?.Apply(buffInfo);
                         break;
                     case BuffUpdateTimeEnum.Keep:
                         break;
@@ -101,7 +101,7 @@ public class BuffHandler : MonoBehaviour
             info.curStack = 1;
             info.durationTimer = info.buffData.Duration;
             info.tickTimer = info.buffData.TickTime;
-            info.buffData.OnCreate.Apply(info);
+            info.buffData.OnCreate?.Apply(info);
             buffList.AddLast(info);
             SortBuffList(buffList); 
         }
