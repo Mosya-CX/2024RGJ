@@ -633,7 +633,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_CollideAgainst:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 8
   m_IgnoreTag: Enemy
   m_TransparentLayers:
     serializedVersion: 2
@@ -1250,6 +1250,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 411875656297005193, guid: 4a7748444371071439acb2fe0c6093aa, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 3948168936250432430, guid: 4a7748444371071439acb2fe0c6093aa, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1290,9 +1294,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5286736446840677094, guid: 4a7748444371071439acb2fe0c6093aa, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7307495334129138734, guid: 4a7748444371071439acb2fe0c6093aa, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7624071096871810143, guid: 4a7748444371071439acb2fe0c6093aa, type: 3}
       propertyPath: m_Name
       value: Grid
+      objectReference: {fileID: 0}
+    - target: {fileID: 7624071096871810143, guid: 4a7748444371071439acb2fe0c6093aa, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8267706456405562663, guid: 4a7748444371071439acb2fe0c6093aa, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

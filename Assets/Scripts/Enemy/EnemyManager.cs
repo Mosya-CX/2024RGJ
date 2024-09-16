@@ -8,6 +8,9 @@ public class EnemyManager : SingletonWithMono<EnemyManager>
     public GameObject enemy2ToSpawn;
     public GameObject enemy3ToSpawn;
 
+    public int enemy1Count = 0;
+    public int enemyLimit;
+
     public float spawnTime = 2.0f; // 生成时间
     private float spawnCd; // 当前生成间隔
 

@@ -6,12 +6,12 @@ public class Mutation1006 : BaseMutation
 {
     public string Des;
     public Sprite Icon;
-
+    public float amt = 1.2f;
     public override string _Des => Des;
     public override Sprite _Sprite => Icon;
     public override bool TryMutate()
     {
-        GameManager.Instance.playerData.moveSpeed *= 1.2f;
+        GameManager.Instance.playerData.moveSpeed *= amt;
         return true;
     }
 }

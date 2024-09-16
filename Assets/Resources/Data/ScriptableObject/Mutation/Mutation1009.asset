@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1084915b00b798445a7fdc7ed118d1bc, type: 3}
   m_Name: Mutation1009
   m_EditorClassIdentifier: 
-  Des: "\u4F60\u7684\u653B\u51FB\u53EF\u4EE5\u7A7F\u900F\u654C\u4EBA\uFF0C\u4F46\u7A7F\u900F\u540E\u5A01\u529B\u524A\u51CF50%"
+  Des: "\u83B7\u5F97\u7A7F\u900F\u5B50\u5F39\uFF01\uFF08\u82E5\u5DF2\u6709\u5219\u5347\u7EA7\uFF09"
   Icon: {fileID: 21300000, guid: d875bae641cedca45bde8c7b46559f68, type: 3}
   missileId: 1001
