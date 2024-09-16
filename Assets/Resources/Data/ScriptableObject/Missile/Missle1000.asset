@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1000
   attackSpace: 1
-  damage: 1
+  damage: 5
   isDuration: 0
   durationTime: 10
   speed: 5
