@@ -22,9 +22,12 @@ public class MainPanel : BasePanel
         EnemyManager.Instance.gameObject.SetActive(true);
         GameManager.Instance.ResumeGame();
         UIManager.Instance.CloseUI(UIConst._MainPanel);
+        AudioManager.Instance.PlayBGM("战斗BGM");
+        AudioManager.Instance.PlayEffect("普通UI点击");
     }
     public void OnClickExit()
     {
         Application.Quit();
+        AudioManager.Instance.PlayEffect("普通UI点击");
     }
 }

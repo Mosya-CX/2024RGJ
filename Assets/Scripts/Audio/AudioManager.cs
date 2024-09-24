@@ -11,8 +11,8 @@ public class AudioManager : SingletonWithMono<AudioManager>
     public void Init()
     {
         totalVolume = PlayerPrefs.GetFloat("TotalVolume", 1);
-        bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 1);
-        effectVolume = PlayerPrefs.GetFloat("EffectVolume", 1);
+        bgmVolume = PlayerPrefs.GetFloat("BGMVolume", 0.8f);
+        effectVolume = PlayerPrefs.GetFloat("EffectVolume", 0.3f);
 
 
         bgmSource = gameObject.AddComponent<AudioSource>();

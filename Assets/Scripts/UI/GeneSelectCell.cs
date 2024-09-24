@@ -16,6 +16,7 @@ public class GeneSelectCell : MonoBehaviour, IPointerClickHandler
     {
         cellIcon = transform.Find("Image").GetComponent<Image>();
         cellText = transform.Find("Description").GetComponent<TextMeshProUGUI>();
+        AudioManager.Instance.PlayEffect("Éý¼¶");
     }
 
     public void RefreshUI()
@@ -28,6 +29,7 @@ public class GeneSelectCell : MonoBehaviour, IPointerClickHandler
     {
         mutation.TryMutate();
         UIManager.Instance.CloseUI(UIConst._GeneMutationPanel);
+       
     }
 
 }

@@ -32,6 +32,7 @@ public class GameManager : SingletonWithMono<GameManager>
         playerData.gameObject.SetActive(false);
         EnemyManager.Instance.gameObject.SetActive(false);
         UIManager.Instance.OpenUI<MainPanel>(UIConst._MainPanel);
+        AudioManager.Instance.PlayBGM("Ö÷½çÃæBGM");
     }
 
     private void Start()

@@ -1,4 +1,5 @@
 using Pathfinding;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
@@ -148,6 +149,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= dmg;
 
+        anim.SetTrigger("IsHurt");
         if (currentHealth <= 0)
         {
             Kill();
@@ -158,6 +160,7 @@ public class Enemy : MonoBehaviour
     {
         EnemyManager.Instance.enemy1Count--;
         Destroy(gameObject);
+        AudioManager.Instance.PlayEffect("µÐÈËËÀÍö");
     }
 
     public void SetAnimation()

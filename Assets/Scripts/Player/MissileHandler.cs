@@ -33,6 +33,7 @@ public class MissileHandler : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Mouse0))
             {
+                AudioManager.Instance.PlayEffect("发射子弹");
                 // 找出距离最近的敌人
                 Enemy closestEnemy = FindClosetEnemy();
                 Vector3 dir = Vector3.zero;

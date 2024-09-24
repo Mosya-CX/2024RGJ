@@ -77,8 +77,9 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            hp-= damage;
+            hp -= damage;
         }
+        AudioManager.Instance.PlayEffect(" ‹…À");
         // ≤•∑≈∂Øª≠
 
         if (hp <= 0)
