@@ -1,12 +1,10 @@
 fileFormatVersion: 2
-guid: 92f47a156ea3e3143982941bae7524fb
+guid: 237d87e0a05ec3048a3c319290361a21
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
   defaultReferences:
-  - enemy1ToSpawn: {instanceID: 0}
-  - enemy2ToSpawn: {instanceID: 0}
-  - enemy3ToSpawn: {instanceID: 0}
+  - hitMat: {fileID: 2100000, guid: 1758ad9407573f8469b03cd398d7ee9d, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

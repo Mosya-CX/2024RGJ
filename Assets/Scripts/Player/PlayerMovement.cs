@@ -63,6 +63,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
+        AudioManager.Instance.PlayEffect("受伤");
         if (shield > 0)
         {
             if (shield >= damage)
@@ -79,7 +80,7 @@ public class PlayerMovement : MonoBehaviour
         {
             hp -= damage;
         }
-        AudioManager.Instance.PlayEffect("受伤");
+      
         // 播放动画
 
         if (hp <= 0)

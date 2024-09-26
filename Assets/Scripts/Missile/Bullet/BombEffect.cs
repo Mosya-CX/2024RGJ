@@ -16,7 +16,7 @@ public class BombEffect : MonoBehaviour
     {
         if (collision.CompareTag("Enemy") && hasSetDamage && !hasBomb && hasSetDamage)
         {
-            collision.GetComponent<Enemy>().TakeDamage(damage);
+            collision.GetComponent<Enemy>().TakeDamage(damage);                    
             hasBomb = true;
         }
     }

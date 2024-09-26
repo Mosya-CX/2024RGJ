@@ -81,7 +81,7 @@ public class GameManager : SingletonWithMono<GameManager>
 
     public void PlayerDied()
     {
-        Application.Quit();
+        PauseGame();
     }
 
 

@@ -10,5 +10,5 @@ public class MissileManager : SingletonWithMono<MissileManager>
     {
         return missileList[Random.Range(0, missileList.Count)];
     }
-    
+    //еп╤оеЖв╡тздд нрурур
 }

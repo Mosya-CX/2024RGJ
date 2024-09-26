@@ -149,7 +149,7 @@ public class Enemy : MonoBehaviour
     {
         currentHealth -= dmg;
 
-        anim.SetTrigger("IsHurt");
+        GetComponent<HurtShader>().PlayFlashFX();
         if (currentHealth <= 0)
         {
             Kill();

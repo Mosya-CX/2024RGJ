@@ -11,7 +11,6 @@ public class Bullet1001 : BaseBullet
         info.TakeDamage(damage);
         damage *= damageAmt;
     }
-
     public override void UpdateBulletPosition()
     {
         base.UpdateBulletPosition();
