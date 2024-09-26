@@ -81,7 +81,10 @@ public class GameManager : SingletonWithMono<GameManager>
 
     public void PlayerDied()
     {
-        PauseGame();
+        currentState = GameStates.Gameover;
+        Time.timeScale = 0f;
+        UIManager.Instance.OpenUI<DeadPanel>(UIConst._DeadPanel);
+        Debug.Log("”Œœ∑Ω· ¯");
     }
 
 

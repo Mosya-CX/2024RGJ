@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
         if (hp <= 0)
         {
             // ÓÎÏ·½áÊø
-            Application.Quit();
+            GameManager.Instance.PlayerDied();
         }
 
     }
@@ -95,5 +95,5 @@ public class PlayerMovement : MonoBehaviour
     {
         anim.SetFloat("Velocity", speed);
     }
-
+   
 }

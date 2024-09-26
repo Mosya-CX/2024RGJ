@@ -19,3 +19,5 @@ MonoBehaviour:
     prefab: {fileID: 2819501505559636951, guid: 51dbc180c8ea07d4baa8b0b4176f7ac7, type: 3}
   - name: MainPanel
     prefab: {fileID: 417408471405437767, guid: 5f7074ea7c04e494a88c8a82757806f2, type: 3}
+  - name: DeadPanel
+    prefab: {fileID: 8919408440170273844, guid: bd6446bedb9bacd42a284dfe147abe5b, type: 3}

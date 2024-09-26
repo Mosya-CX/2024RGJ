@@ -33,7 +33,7 @@ public class BattlePanel : BasePanel
 
     private void Update()
     {
-        TimerText.text = GameManager.Instance.timer.ToString();
+        TimerText.text = GameManager.Instance.timer.ToString("0.0");
         UpdateHpPoints();
     }
     public override void OnOpenUI()
